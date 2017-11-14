@@ -1,0 +1,15 @@
+[package]
+name = "recuperator-facebook"
+version = "0.1.0"
+authors = ["Valentin Fries <contact@fries.io>", "Vincent Milano <vincent_mot@hotmail.fr>"]
+
+[dependencies]
+tomorrow-core = {git = "https://github.com/tomorrow-paper/tomorrow-core"}
+tomorrow-recuperator = {git = "https://github.com/tomorrow-paper/tomorrow-recuperator"}
+tomorrow-http = {git = "https://github.com/tomorrow-paper/tomorrow-http"}
+
+serde = "1.0.15"
+serde_json = "1.0.4"
+serde_derive = "1.0.15"
+
+select = "0.4.2"
