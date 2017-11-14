@@ -116,7 +116,7 @@ impl <T> Recuperator<FacebookPublicRequest, FacebookPublicResponse> for Facebook
 impl Default for FacebookPublicRecuperator<Client> {
 
     fn default() -> Self {
-        let client: Client = Builder::https(API_URL).into();
+        let client: Client = Builder::https(API_URL).lang("en-GB").into();
         FacebookPublicRecuperator::new(client)
     }
 }
