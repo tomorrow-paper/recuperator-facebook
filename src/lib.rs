@@ -9,3 +9,4 @@ extern crate serde_json;
 extern crate select;
 
 pub mod public;
+pub mod profile;
