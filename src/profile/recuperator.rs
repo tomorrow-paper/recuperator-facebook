@@ -55,3 +55,41 @@ impl Default for FacebookProfileRecuperator<Client> {
         FacebookProfileRecuperator::new(client)
     }
 }
+
+#[cfg(test)]
+mod tests {
+
+    use tomorrow_recuperator::Recuperator;
+    use tomorrow_http::raw::mock::MockClient;
+
+    use ::profile::*;
+
+    #[test]
+    fn profile_recuperator_should_return_a_populated_profile_structure() {
+        let document = mock_document();
+        let client = MockClient::with_content(document.as_ref());
+
+        let recuperator = FacebookProfileRecuperator::new(client);
+        let request = FacebookProfileRequest::new("mock.profile");
+        
+        let response = recuperator.compute(request);
+        assert!(response.is_ok());
+
+        let profile = response.unwrap().profile;
+        assert_eq!(profile.name, "Test");
+    }
+
+    fn mock_document() -> String {
+        String::from(r#"
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Mock Document</title>
+        </head>
+        <body>
+            
+        </body>
+        </html>
+        "#)
+    }
+}
